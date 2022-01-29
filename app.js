@@ -59,6 +59,19 @@ app.post('/api/genres', (req,res)=>{
         res.json(genres);
     });
 });
+// how to update data
+
+app.put('/api/genres/:_id', (req,res)=>{
+    var id = req.params._id;
+    const genre = req.body;
+    Genre.updateGenres(id,genre,{},(err,genres)=>{
+        if(err){
+            throw Error;
+        }
+        res.json(genres);
+    })
+});
+
 app.get('/api/books', (req,res)=>{
     Book.getBooks((err,books)=>{
         console.log(books);
@@ -69,6 +82,8 @@ app.get('/api/books', (req,res)=>{
         
     })
 });
+
+
 
 app.get('/api/books/:_id', (req,res)=>{
     Book.getBookById(req.params._id,(err,book)=>{
