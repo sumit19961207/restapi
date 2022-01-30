@@ -23,3 +23,13 @@ module.exports.getFilmById = (Id, callBack) =>{
 module.exports.addFilms = (film, callback) =>{
     Film.create(film,callback);
 }
+
+module.exports.updateFilm = (id,film,option,callBack) =>{
+    const query = {_id:id};
+    const update = {
+        filmName: film.filmName,
+        actorName:film.actorName
+    }
+    Film.findOneAndUpdate(query,film,update,callBack);
+}
+

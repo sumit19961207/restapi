@@ -142,6 +142,18 @@ app.post("/api/films", (req,res)=>{
     })
 })
 
+//update film data
+app.put('/api/films/:_id',(req,res)=>{
+    const id = req.params._id;
+    const film = req.body;
+    Film.updateFilm(id,film,{},(err,films)=>{
+        if(err){
+            throw err;
+        }
+        res.json(films);
+    })
+})
+
 
 //port
 const port = process.env.PORT || 3000
