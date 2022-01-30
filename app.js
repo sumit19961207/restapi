@@ -142,7 +142,7 @@ app.post("/api/films", (req,res)=>{
     })
 })
 
-//update film data
+//update incorrect data
 app.put('/api/films/:_id',(req,res)=>{
     const id = req.params._id;
     const film = req.body;
